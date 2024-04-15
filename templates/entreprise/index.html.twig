@@ -9,7 +9,7 @@
     <ul>
         {# {{ dump(_context) }} #}
         {% for entreprise in entreprises %}
-            <li><a href="{{ path('show_entreprise') }}">{{ entreprise }}</a></li>
+            <li><a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a></li>
         {% endfor %}
     </ul>
 
