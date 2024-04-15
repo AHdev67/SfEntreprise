@@ -4,14 +4,12 @@
 
 {% block body %}
     
-    <h1>Détail d'une entreprise</h1>
+    <h1>Détail de l'entreprise :</h1>
     
     <h2>{{ entreprise }}</h2>
     <p>
-        Date de création :
-        Adresse :
-        Code Postal :
-        Ville :
+        Adresse : {{ entreprise.adresseComplete }} <br>
+        Date de création : {{ entreprise.dateCreation | date("d/m/Y") }} <br>
     </p>
 
 {% endblock %}
