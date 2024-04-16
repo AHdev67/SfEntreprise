@@ -36,6 +36,13 @@ class EmployeType extends AbstractType
                 ]
             ])
 
+            ->add('dateEmbauche', DateType::class, [
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ]
+            ])
+
             ->add('ville', TextType::class, [
                 'attr' => [
                     'class' => 'form-control mb-3'
@@ -50,14 +57,7 @@ class EmployeType extends AbstractType
                 ]
             ])
 
-            ->add('dateEmbauche', DateType::class, [
-                'widget' => 'single_text',
-                'attr' => [
-                    'class' => 'form-control mb-3'
-                ]
-            ])
-
-            ->add('Valider', SubmitType::class, [
+            ->add('valider', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-success'
                 ]
