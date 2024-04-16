@@ -3,14 +3,15 @@
 {% block title %}Liste des entreprises{% endblock %}
 
 {% block body %}
-    
-    <h1>Liste des entreprises :</h1>
-    
-    <ul>
-        {# {{ dump(_context) }} #}
-        {% for entreprise in entreprises %}
-            <li><a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a></li>
-        {% endfor %}
-    </ul>
+    <main>
+        <h1>Liste des entreprises :</h1>
+        
+        <ul>
+            {# {{ dump(_context) }} #}
+            {% for entreprise in entreprises %}
+                <li><a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a></li>
+            {% endfor %}
+        </ul>
+    </main>
 
 {% endblock %}

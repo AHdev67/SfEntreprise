@@ -4,20 +4,22 @@
 
 {% block body %}
     
-    <h1>Détail de l'employé :</h1>
-    
-    <h2>{{ employe }}</h2>
-    <p>
-        Employeur : <a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise }}</a> <br>
-        Ville de résidence : 
-        {% if employe.ville | length > 0 %}
-            {{ employe.ville }} <br>
-        {% else %}
-            Information non renseignée. <br>
-        {% endif %}
-        Date de naissance : {{ employe.dateNaissance | date("d/m/Y") }} <br>
-        Age : {{ employe.age }} ans. <br>
-        Date d'embauche : {{ employe.dateEmbauche | date("d/m/Y") }} <br>
-    </p>
+    <main>
+        <h1>Détail de l'employé :</h1>
+        
+        <h2>{{ employe }}</h2>
+        <p>
+            <b>Employeur :</b> <a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise }}</a> <br>
+            <b>Ville de résidence :</b> 
+            {% if employe.ville | length > 0 %}
+                {{ employe.ville }} <br>
+            {% else %}
+                Information non renseignée. <br>
+            {% endif %}
+            <b>Date de naissance :</b> {{ employe.dateNaissance | date("d/m/Y") }} <br>
+            <b>Age :</b> {{ employe.age }} ans. <br>
+            <b>Date d'embauche :</b> {{ employe.dateEmbauche | date("d/m/Y") }} <br>
+        </p>
+    </main>
 
 {% endblock %}
