@@ -27,18 +27,19 @@ CREATE TABLE IF NOT EXISTS `employe` (
   `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_naissance` datetime DEFAULT NULL,
   `date_embauche` datetime NOT NULL,
-  `ville` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ville` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_F804D3B9A4AEAFEA` (`entreprise_id`),
   CONSTRAINT `FK_F804D3B9A4AEAFEA` FOREIGN KEY (`entreprise_id`) REFERENCES `entreprise` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Listage des données de la table sfentreprise.employe : ~4 rows (environ)
 INSERT INTO `employe` (`id`, `entreprise_id`, `nom`, `prenom`, `date_naissance`, `date_embauche`, `ville`) VALUES
-	(1, 1, 'SMAIL', 'Stephane', '1982-04-15 15:30:14', '2019-04-15 15:30:40', NULL),
+	(1, 1, 'SMAIL', 'Stephane', '1982-04-15 15:30:14', '2019-04-15 15:30:40', 'MULHOUSE'),
 	(2, 1, 'MATHIEU', 'Quentin', '1993-04-15 15:31:16', '2019-04-15 15:31:28', NULL),
-	(3, 1, 'MURMANN', 'Mickael', '1991-04-15 15:33:00', '2019-04-15 15:33:17', NULL),
-	(4, 3, 'BINGUS', 'Jimmy', '1998-04-15 15:34:25', '2020-04-15 15:34:33', NULL);
+	(3, 1, 'MURMANN', 'Mickael', '1985-04-15 15:33:00', '2019-04-15 15:33:17', NULL),
+	(4, 2, 'ANDRES', 'Mathilde', '1994-04-15 15:34:25', '2015-04-15 15:34:33', NULL),
+	(5, 4, 'MAGNIFIQUE', 'Marius', '1982-06-03 00:00:00', '2003-10-15 00:00:00', 'MONTELIMAR');
 
 -- Listage de la structure de table sfentreprise. entreprise
 CREATE TABLE IF NOT EXISTS `entreprise` (
@@ -49,13 +50,14 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
   `code_postal` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ville` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table sfentreprise.entreprise : ~3 rows (environ)
+-- Listage des données de la table sfentreprise.entreprise : ~0 rows (environ)
 INSERT INTO `entreprise` (`id`, `raison_sociale`, `date_creation`, `adresse`, `code_postal`, `ville`) VALUES
 	(1, 'ELANFORMATION', '1993-04-12 16:45:27', '14 rue du Rhone', '67100', 'STRASBOURG'),
 	(2, 'COACTIS', '2015-04-12 16:46:53', '10 rue de la Charmille', '67200', 'STRASBOURG'),
-	(3, 'BINGUS INC.', '2024-04-12 16:48:59', '32 rue du Dindon', '68000', 'COLMAR');
+	(3, 'BINGUS INDUSTRIES', '2024-04-12 00:00:00', '32 rue du Dindon', '68000', 'COLMAR'),
+	(4, 'TURBOMARKET', '2003-03-16 00:00:00', '23 rue du Chariot', '67000', 'STRASBOURG');
 
 -- Listage de la structure de table sfentreprise. messenger_messages
 CREATE TABLE IF NOT EXISTS `messenger_messages` (
