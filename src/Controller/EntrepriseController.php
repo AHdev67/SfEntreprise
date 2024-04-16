@@ -34,11 +34,26 @@ class EntrepriseController extends AbstractController
     //METHODE NEW FORM QUI RENVOIE UN FORMULAIRE D'AJOUT D'ENTREPRISE
     //---------------------------------------------------------------
     #[Route('/entreprise/new', name: 'new_entreprise')]
-    public function new(Request $request): Response
+    #[Route('/entreprise/{id}/edit', name: 'edit_entreprise')]
+    public function new_edit(Entreprise $entreprise = null, Request $request, EntityManagerInterface $entityManager): Response
     {
-        $entreprise = new Entreprise();
+        if(!$entreprise){
+            $entreprise = new Entreprise();
+        }
 
         $form = $this->createForm(EntrepriseType::class, $entreprise);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $entreprise = $form->getData();
+            //equivalent PDO prepare
+            $entityManager->persist($entreprise);
+            //equivalent PDO execute
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_entreprise');
+        }
 
         return $this->render('entreprise/new.html.twig', [
             'formAddEntreprise' => $form,
