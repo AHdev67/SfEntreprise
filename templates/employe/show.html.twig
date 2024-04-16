@@ -10,6 +10,7 @@
         <h2>{{ employe }}</h2>
         <p>
             <b>Employeur :</b> <a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise }}</a> <br>
+            <b>Date d'embauche :</b> {{ employe.dateEmbauche | date("d/m/Y") }} <br>
             <b>Ville de résidence :</b> 
             {% if employe.ville | length > 0 %}
                 {{ employe.ville }} <br>
@@ -18,7 +19,6 @@
             {% endif %}
             <b>Date de naissance :</b> {{ employe.dateNaissance | date("d/m/Y") }} <br>
             <b>Age :</b> {{ employe.age }} ans. <br>
-            <b>Date d'embauche :</b> {{ employe.dateEmbauche | date("d/m/Y") }} <br>
         </p>
     </main>
 
