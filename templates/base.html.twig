@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
     </head>
-    
+
     <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
@@ -24,6 +24,8 @@
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li><a class="nav-link" aria-current="page" href="{{ path('app_entreprise') }}">Liste des entreprises</a></li>
                         <li><a class="nav-link" aria-current="page" href="{{ path('app_employe') }}">Liste des employés</a></li>
+                        <li><a class="nav-link" aria-current="page" href="{{ path('new_entreprise') }}">Ajouter une entreprise</a></li>
+                        <li><a class="nav-link" aria-current="page" href="{{ path('new_employe') }}">Ajouter un employé</a></li>
                     </ul>
                 </div>
             </div>
