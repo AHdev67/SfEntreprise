@@ -4,8 +4,8 @@
 
 {% block body %}
 
-    <main>
-        <h1>Détail de l'entreprise :</h1>
+    <main class="container mt-5 pt-5">
+        <h1 class="display-5 fw-bold text-body-emphasis mb-5">Détail de l'entreprise :</h1>
         
         <h2>{{ entreprise }}</h2>
         <p>
@@ -15,12 +15,22 @@
 
         <h3>Liste des salariés :</h3>
         {% if entreprise.employes | length > 0 %}
-            <ul>
-            {% for employe in entreprise.employes %}
-                <li><a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a></li>
-            {% endfor %}
-            </ul>
-        {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Employé</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for employe in entreprise.employes %}
+                        <tr>
+                            <td><a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+         {% else %}
             <p>Aucun employé dans cette entreprise.</p>
         {% endif %}
     </main>

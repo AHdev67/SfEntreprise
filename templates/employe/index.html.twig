@@ -4,19 +4,24 @@
 
 {% block body %}
 
-    <main>
-        <h1>Liste des employés</h1>
+    <main class="container mt-5 pt-5">
+        <h1 class="display-5 fw-bold text-body-emphasis mb-5">Liste des employés</h1>
             
-        <ul>
-        
-            {% for employe in employes %}
-                <li>
-                    <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a>  
-                    (<a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise.raisonSociale }}</a>)
-                </li>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employés</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employe in employes %}
+                <tr>
+                    <td><a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a>  
+                    (<a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise.raisonSociale }}</a>)</td>
+                </tr>
             {% endfor %}
-
-        </ul>
+            </tbody>
+        </table>
     </main>
 
 {% endblock %}

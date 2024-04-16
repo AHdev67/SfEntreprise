@@ -3,15 +3,25 @@
 {% block title %}Liste des entreprises{% endblock %}
 
 {% block body %}
-    <main>
-        <h1>Liste des entreprises :</h1>
+    <main class="container mt-5 pt-5">
+        <h1 class="display-5 fw-bold text-body-emphasis mb-5">Liste des entreprises :</h1>
         
-        <ul>
-            {# {{ dump(_context) }} #}
-            {% for entreprise in entreprises %}
-                <li><a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a></li>
-            {% endfor %}
-        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Entreprises</th>
+                </tr>
+            </thead>
+            <tbody>
+                {# {{ dump(_context) }} #}
+                {% for entreprise in entreprises %}
+                    <tr>
+                        <td><a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table class="table">
     </main>
 
 {% endblock %}
