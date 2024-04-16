@@ -9,7 +9,10 @@
     <ul>
     
         {% for employe in employes %}
-            <li><a href="">{{ employe }}</a>  (<a href="">{{ employe.entreprise.raisonSociale }}</a>)</li>
+            <li>
+                <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a>  
+                (<a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise.raisonSociale }}</a>)
+            </li>
         {% endfor %}
 
     </ul>
