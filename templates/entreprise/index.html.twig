@@ -16,7 +16,10 @@
                 {# {{ dump(_context) }} #}
                 {% for entreprise in entreprises %}
                     <tr>
-                        <td><a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a></td>
+                        <td>
+                            <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a> 
+                            <a href="{{ path('edit_entreprise', {'id': entreprise.id}) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
