@@ -6,7 +6,24 @@
     <main class="container mt-5 mb-5 pt-5">
         <h1 class="mb-5">Ajoutez un employé :</h1>
 
-        {{ form(formAddEmploye) }}
+        {# {{ form(formAddEmploye) }} #}
+
+        {{ form_start(formAddEmploye) }}
+            <div class="row">
+                <div class="col-sm">
+                    {{ form_row(formAddEmploye.nom) }}
+                </div>
+                <div class="col-sm">
+                    {{ form_row(formAddEmploye.prenom) }}
+                </div>
+            </div>
+           {{ form_row(formAddEmploye.dateNaissance) }}
+           {{ form_row(formAddEmploye.ville) }}
+           {{ form_row(formAddEmploye.dateEmbauche) }}
+           {{ form_row(formAddEmploye.entreprise) }}
+           {{ form_row(formAddEmploye.valider) }}
+        {{ form_end(formAddEmploye) }}
+        
     </main>
    
 

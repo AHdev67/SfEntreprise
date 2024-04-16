@@ -6,7 +6,22 @@
     <main class="container mt-5 mb-5 pt-5">
         <h1 class="mb-5">Ajoutez une entreprise :</h1>
 
-        {{ form(formAddEntreprise) }}
+        {# {{ form(formAddEntreprise) }} #}
+        {{ form_start(formAddEntreprise) }}
+            {{ form_row(formAddEntreprise.raisonSociale) }}
+            {{ form_row(formAddEntreprise.dateCreation) }}
+            {{ form_row(formAddEntreprise.adresse) }}
+            <div class="row">
+                <div class="col-sm">
+                    {{ form_row(formAddEntreprise.codePostal) }}
+                </div>
+                <div class="col-sm">
+                    {{ form_row(formAddEntreprise.ville) }}
+                </div>
+            </div>
+            
+        {{ form_end(formAddEntreprise) }}
+
     </main>
    
 
