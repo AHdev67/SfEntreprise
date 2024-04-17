@@ -6,6 +6,8 @@
 
     <main class="container mt-5 pt-5">
         <h1 class="display-5 fw-bold text-body-emphasis mb-5">Liste des employés</h1>
+
+        <a class="btn btn-success" href="{{ path('new_employe') }}">Ajouter un employé</a>
             
         <table class="table">
             <thead>
@@ -16,8 +18,12 @@
             <tbody>
                 {% for employe in employes %}
                 <tr>
-                    <td><a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a>  
-                    (<a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise.raisonSociale }}</a>)</td>
+                    <td>
+                        <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a>  
+                        (<a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise.raisonSociale }}</a>) 
+                        <a href="{{ path('edit_employe', {'id': employe.id}) }}"><i class="fa-solid fa-pen-to-square"></i></a> |
+                        <a class="delbtn" href="{{ path('delete_employe', {'id': employe.id}) }}"><i class="fa-solid fa-trash"></i></a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
