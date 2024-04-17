@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter un employé{% endblock %}
+{% block title %}Formulaire employé{% endblock %}
 
 {% block body %}
     <main class="container mt-5 mb-5 pt-5">
-        <h1 class="mb-5">Ajoutez un employé :</h1>
+        {% if edit %}
+            <h1 class="mb-5">Editer l'employé :</h1>
+        {% else %}
+            <h1 class="mb-5">Ajouter un employé :</h1>
+        {% endif %}
+        
 
         {# {{ form(formAddEmploye) }} #}
 
