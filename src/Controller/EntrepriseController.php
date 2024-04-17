@@ -30,9 +30,9 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
-    //---------------------------------------------------------------
-    //METHODE NEW FORM QUI RENVOIE UN FORMULAIRE D'AJOUT D'ENTREPRISE
-    //---------------------------------------------------------------
+    //-----------------------------------------------------------------------------------
+    //METHODE NEW_EDIT FORM QUI RENVOIE UN FORMULAIRE D'AJOUT / MODIFICATION D'ENTREPRISE
+    //-----------------------------------------------------------------------------------
     #[Route('/entreprise/new', name: 'new_entreprise')]
     #[Route('/entreprise/{id}/edit', name: 'edit_entreprise')]
     public function new_edit(Entreprise $entreprise = null, Request $request, EntityManagerInterface $entityManager): Response
@@ -57,13 +57,27 @@ class EntrepriseController extends AbstractController
 
         return $this->render('entreprise/new.html.twig', [
             'formAddEntreprise' => $form,
+            //var edit qui renvoie un booléen permettant l'affichage dynamique du titre du formulaire
+            'edit' => $entreprise->getId()
         ]);
+    }
+
+    //-----------------------------------------------------
+    //METHODE DELETE QUI SUPPRIME UNE ENTREPRISE
+    //-----------------------------------------------------
+    #[Route('/entreprise/{id}/delete', name: 'delete_entreprise')]
+    public function delete(Entreprise $entreprise, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($entreprise);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_entreprise');
     }
 
     //-----------------------------------------------------
     //METHODE SHOW QUI RENVOIE LES DETAILS D'UNE ENTREPRISE
     //-----------------------------------------------------
-     #[Route('/entreprise/{id}', name: 'show_entreprise')]
+    #[Route('/entreprise/{id}', name: 'show_entreprise')]
     public function show(Entreprise $entreprise): Response
     {
         return $this->render('entreprise/show.html.twig', [
